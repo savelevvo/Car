@@ -47,6 +47,20 @@ Engine::Engine
 	power=_power;
 }
 
+Engine & Engine::operator=(const Engine &rhs)
+{
+	if (this == &rhs) return *this;
+	name = rhs.name;
+	CVVT = rhs.CVVT;
+	comprRatio = rhs.comprRatio;
+	cylinderCount = rhs.cylinderCount;
+	cylinderDiameter = rhs.cylinderDiameter;
+	stroke = rhs.stroke;
+	displacement = rhs.displacement;
+	power = rhs.power;
+	return *this;
+}
+
 std::ostream & operator<<(std::ostream &os, const Engine &_e)
 {
 	return os << "\nEngine info:" << endl
@@ -87,4 +101,16 @@ std::istream & operator>>(std::istream &is, Engine &_e)
 	is >> _e.power;
 
 	return is;
+}
+
+bool operator==(const Engine &lhs, const Engine &rhs)
+{
+	return  lhs.name == rhs.name &&
+			lhs.CVVT == rhs.CVVT &&
+			lhs.comprRatio == rhs.comprRatio &&
+			lhs.cylinderCount == rhs.cylinderCount &&
+			lhs.cylinderDiameter == rhs.cylinderDiameter &&
+			lhs.stroke == rhs.stroke &&
+			lhs.displacement == rhs.displacement &&
+			lhs.power == rhs.power;
 }

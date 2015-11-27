@@ -39,6 +39,18 @@ Car::Car
 	engine = _engine;
 }
 
+Car & Car::operator=(const Car &rhs)
+{
+	if (this == &rhs) return *this;
+	model = rhs.model;
+	series = rhs.series;
+	country = rhs.country;
+	transmission = rhs.transmission;
+	acceleration = rhs.acceleration;
+	engine = rhs.engine;
+	return *this;
+}
+
 std::ostream & operator<<(std::ostream &os, const Car &_c)
 {
 	return os << "\nCar's info:"
@@ -71,4 +83,14 @@ std::istream & operator>>(std::istream &is, Car &_c)
 	is >> _c.engine;
 
 	return is;
+}
+
+bool operator==(const Car &lhs, const Car &rhs)
+{
+	return  lhs.model == rhs.model &&
+			lhs.series == rhs.series &&
+			lhs.country == rhs.country &&
+			lhs.transmission == rhs.transmission &&
+			lhs.acceleration == rhs.acceleration &&
+			lhs.engine == rhs.engine;
 }

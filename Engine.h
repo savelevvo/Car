@@ -35,7 +35,9 @@ public:
 		IENG_PARAM    _power
 	);
 
+	Engine & operator=(const Engine &);
+
 	friend std::ostream & operator<<(std::ostream &, const Engine &);
 	friend std::istream & operator>>(std::istream &, Engine &);
-
+	friend bool operator==(const Engine &, const Engine &);
 };
