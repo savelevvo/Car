@@ -65,7 +65,7 @@ std::ostream & operator<<(std::ostream &os, const Engine &_e)
 {
 	return os << "\nEngine info:" << endl
 		<< "\tName: " << _e.name << endl
-		<< "\tCVVT: " << _e.CVVT << endl
+		<< "\tCVVT: " << (_e.CVVT ? "yes" : "no") << endl
 		<< "\tCompression: " << _e.comprRatio << endl
 		<< "\tCylinders count: " << _e.cylinderCount << endl
 		<< "\tCylinders diameter: " << _e.cylinderDiameter << endl

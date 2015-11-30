@@ -59,7 +59,8 @@ std::ostream & operator<<(std::ostream &os, const Car &_c)
 		<< "\tCountry: " << _c.country << endl
 		<< "\tTransmission: " << _c.transmission << endl
 		<< "\tAcceleration 0-100 km/h: " << _c.acceleration << endl
-		<< _c.engine;
+		<< _c.engine
+		<< "-------------------------------------";
 }
 
 std::istream & operator>>(std::istream &is, Car &_c)
