@@ -6,7 +6,6 @@
 typedef size_t IENG_PARAM;
 typedef float  FENG_PARAM;
 typedef std::string SCAR_PARAM;
-typedef float FCAR_PARAM;
 
 class Engine
 {

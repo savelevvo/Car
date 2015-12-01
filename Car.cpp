@@ -23,12 +23,12 @@ Car::Car(const Car &_c)
 
 Car::Car
 (
-	SCAR_PARAM  _model,
-	SCAR_PARAM  _series,
-	SCAR_PARAM  _country,
-	SCAR_PARAM  _transmission,
-	FCAR_PARAM  _acceleration,
-	Engine		_engine
+	SCAR_PARAM   _model,
+	SCAR_PARAM   _series,
+	SCAR_PARAM   _country,
+	SCAR_PARAM   _transmission,
+	Acceleration _acceleration,
+	Engine		 _engine
 )
 {
 	model = _model;
