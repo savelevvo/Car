@@ -1,28 +1,29 @@
 #include"Ratio.h"
-using std::cout;
 
-Ratio::Ratio(const Ratio &_r)
-{
-	first = _r.first;
-	second = _r.second;
-}
+Ratio::Ratio()
+	:first(1),
+	 second(1)
+{}
+
+Ratio::Ratio(const Ratio &rhs)
+	:first(rhs.first),
+	 second(rhs.second)
+{}
 
 Ratio::Ratio(float _f)
-{
-	first = static_cast<float>(_f);
-	second = 1;
-}
+	:first(_f),
+	 second(1)
+{}
 
 Ratio::Ratio(float _f, unsigned short _s)
-{
-	first = static_cast<float>(_f);
-	second = _s;
-}
+
+	:first(_f),
+	 second(_s)
+{}
 
 Ratio & Ratio::operator=(const Ratio &rhs)
 {
-	if (this == &rhs)
-		return *this;
+	if (this == &rhs) return *this;
 	first = rhs.first;
 	second = rhs.second;
 	return *this;

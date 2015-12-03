@@ -1,25 +1,29 @@
 #include "Person.h"
 
-Person::Person(const Person &_p)
-{
-	fname = _p.fname;
-	lname = _p.lname;
-	garage = _p.garage;
-}
+Person::Person()
+	:fname("Unknown"),
+	 lname("Unknown"),
+	 garage(nullptr)
+{}
+
+Person::Person(const Person &rhs)
+	:fname(rhs.fname),
+	 lname(rhs.lname),
+	 garage(rhs.garage)
+{}
 
 Person::Person(const string &_fn, const string &_ln, Garage &_g)
-{
-	fname = _fn;
-	lname = _ln;
-	garage = &_g;
-}
+	:fname(_fn),
+	 lname(_ln),
+	 garage(&_g)
+{}
 
-Person & Person::operator=(const Person &_p)
+Person & Person::operator=(const Person &rhs)
 {
-	if (this == &_p) return *this;
-	fname = _p.fname;
-	lname = _p.lname;
-	garage = _p.garage;
+	if (this == &rhs) return *this;
+	fname = rhs.fname;
+	lname = rhs.lname;
+	garage = rhs.garage;
 	return *this;
 }
 

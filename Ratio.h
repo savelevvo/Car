@@ -1,5 +1,6 @@
 #pragma once
 #include<iostream>
+using std::cout;
 
 class Ratio
 {
@@ -7,7 +8,7 @@ private:
 	float first;
 	unsigned short second;
 public:
-	Ratio() : first(1), second(1) {}
+	Ratio();
 	Ratio(const Ratio &);
 	Ratio(float);
 	Ratio(float, unsigned short);

@@ -19,5 +19,4 @@ int main()
 	Person John("John", "Smith", g);
 	cout << John << endl;
 }
-
 // add file i/o

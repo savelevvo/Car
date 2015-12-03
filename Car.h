@@ -3,6 +3,9 @@
 #include"Engine.h"
 #include"Acceleration.h"
 
+using std::cout;
+using std::endl;
+
 class Car :
 	private Engine
 {

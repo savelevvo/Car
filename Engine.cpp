@@ -1,29 +1,26 @@
 #include"Engine.h"
-using std::cout;
-using std::endl;
 
 Engine::Engine()
-{
-	name = "N/A";
-	CVVT = false;
-	cylinderCount = 1;
-	cylinderDiameter = 1;
-	stroke = 1;
-	displacement = 1;
-	power = 1;
-}
+	:name("N/A"),
+	 CVVT(false),
+	 cylinderCount(1),
+	 cylinderDiameter(1),
+	 stroke(1),
+	 displacement(1),
+	 power(1)
+{}
 
-Engine::Engine(const Engine &_e)
-{
-	name = _e.name;
-	CVVT = _e.CVVT;
-	comprRatio = _e.comprRatio;
-	cylinderCount = _e.cylinderCount;
-	cylinderDiameter = _e.cylinderDiameter;
-	stroke = _e.stroke;
-	displacement = _e.displacement;
-	power = _e.power;
-}
+Engine::Engine(const Engine &rhs)
+
+	:name(rhs.name),
+	 CVVT(rhs.CVVT),
+	 comprRatio(rhs.comprRatio),
+	 cylinderCount(rhs.cylinderCount),
+	 cylinderDiameter(rhs.cylinderDiameter),
+	 stroke(rhs.stroke),
+	 displacement(rhs.displacement),
+	 power(rhs.power)
+{}
 
 Engine::Engine
 (
@@ -36,16 +33,15 @@ Engine::Engine
 	FENG_PARAM	 _displacement,
 	IENG_PARAM	 _power
 )
-{
-	name = _name;
-	CVVT = _CVVT;
-	comprRatio = _comprRatio;
-	cylinderCount =	_cylinderCount;
-	cylinderDiameter = _cylinderDiameter;
-	stroke=_stroke;
-	displacement=_displacement;
-	power=_power;
-}
+	:name(_name),
+	 CVVT(_CVVT),
+	 comprRatio(_comprRatio),
+	 cylinderCount(_cylinderCount),
+	 cylinderDiameter(_cylinderDiameter),
+	 stroke(_stroke),
+	 displacement(_displacement),
+	 power(_power)
+{}
 
 Engine & Engine::operator=(const Engine &rhs)
 {

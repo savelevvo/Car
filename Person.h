@@ -2,6 +2,7 @@
 #include<iostream>
 #include<string>
 #include"Garage.h"
+
 using std::string;
 using std::cout;
 
@@ -12,7 +13,7 @@ private:
 	Garage *garage;
 	
 public:
-	Person() : fname("Unknown"), lname("Unknown"), garage(nullptr) {}
+	Person();
 	Person(const Person &);
 	Person(const string &, const string &, Garage &);
 

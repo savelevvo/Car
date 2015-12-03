@@ -1,25 +1,22 @@
 #include"Car.h"
-using std::cout;
-using std::endl;
 
 Car::Car()
-{
-	model = "Unnamed";
-	series = "Unknown Series";
-	country = "N/A";
-	transmission = "Manual";
-	acceleration = .0;
-}
+	:model("Unnamed"),
+	 series("Unknown Series"),
+	 country("N/A"),
+	 transmission("Manual"),
+	 acceleration(Acceleration()),
+	 engine(Engine())
+{}
 
-Car::Car(const Car &_c)
-{
-	model = _c.model;
-	series = _c.series;
-	country = _c.country;
-	transmission = _c.transmission;
-	acceleration = _c.acceleration;
-	engine = _c.engine;
-}
+Car::Car(const Car &rhs)
+	:model(rhs.model),
+	 series(rhs.series),
+	 country(rhs.country),
+	 transmission(rhs.transmission),
+	 acceleration(rhs.acceleration),
+	 engine(rhs.engine)
+{}
 
 Car::Car
 (
@@ -30,14 +27,13 @@ Car::Car
 	Acceleration _acceleration,
 	Engine		 _engine
 )
-{
-	model = _model;
-	series = _series;
-	country = _country;
-	transmission = _transmission;
-	acceleration = _acceleration;
-	engine = _engine;
-}
+	:model(_model),
+	 series(_series),
+	 country(_country),
+	 transmission(_transmission),
+	 acceleration(_acceleration),
+	 engine(_engine)
+{}
 
 Car & Car::operator=(const Car &rhs)
 {

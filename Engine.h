@@ -3,6 +3,9 @@
 #include<string>
 #include"Ratio.h"
 
+using std::cout;
+using std::endl;
+
 typedef size_t IENG_PARAM;
 typedef float  FENG_PARAM;
 typedef std::string SCAR_PARAM;

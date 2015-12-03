@@ -9,7 +9,7 @@ private:
 	TIME sec;
 	TIME msec;
 public:
-	Acceleration() : sec(0), msec(0) {};
+	Acceleration();
 	Acceleration(const Acceleration &);
 	Acceleration(TIME);
 	Acceleration(TIME, TIME);
