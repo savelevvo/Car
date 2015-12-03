@@ -1,5 +1,6 @@
 #include<string>
 #include"Garage.h"
+#include"Person.h"
 using std::string;
 
 int main()
@@ -15,7 +16,8 @@ int main()
 	g.AddCar(E34_525);
 	g.DisplayCars();
 
+	Person John("John", "Smith", g);
+	cout << John << endl;
 }
 
 // add file i/o
-// add class Person
