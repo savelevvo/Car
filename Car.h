@@ -10,23 +10,23 @@ class Car :
 	private Engine
 {
 private:
+	Engine		 engine; 
+	Acceleration acceleration;
 	SCAR_PARAM   model,
 				 series,
 				 country,
 				 transmission;
-	Acceleration acceleration;
-	Engine		 engine;
-	
+	void init(SCAR_PARAM, SCAR_PARAM, SCAR_PARAM, SCAR_PARAM);
 public:
 	Car();
 	Car(const Car &);
 	Car(
+		Engine		 _engine,
+		Acceleration _acceleration,
 		SCAR_PARAM   _model,
 		SCAR_PARAM   _series,
 		SCAR_PARAM   _country,
-		SCAR_PARAM   _transmission,
-		Acceleration _acceleration,
-		Engine		 _engine
+		SCAR_PARAM   _transmission
 		);
 
 	Car & operator=(const Car &);

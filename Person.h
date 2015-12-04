@@ -9,9 +9,9 @@ using std::cout;
 class Person
 {
 private:
-	string fname, lname;
 	Garage *garage;
-	
+	string fname, lname;
+	void init(string, string);
 public:
 	Person();
 	Person(const Person &);

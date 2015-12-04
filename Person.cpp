@@ -1,29 +1,34 @@
 #include "Person.h"
 
+void Person::init(string _fname = "Unknown", string _lname = "Unknown")
+{
+	fname = _fname;
+	lname = _lname;
+}
+
 Person::Person()
-	:fname("Unknown"),
-	 lname("Unknown"),
-	 garage(nullptr)
-{}
+	: garage(nullptr)
+{
+	init();
+}
 
 Person::Person(const Person &rhs)
-	:fname(rhs.fname),
-	 lname(rhs.lname),
-	 garage(rhs.garage)
-{}
+	:garage(rhs.garage)
+{
+	init(rhs.fname, rhs.lname);
+}
 
 Person::Person(const string &_fn, const string &_ln, Garage &_g)
-	:fname(_fn),
-	 lname(_ln),
-	 garage(&_g)
-{}
+	:garage(&_g)
+{
+	init(_fn, _ln);
+}
 
 Person & Person::operator=(const Person &rhs)
 {
 	if (this == &rhs) return *this;
-	fname = rhs.fname;
-	lname = rhs.lname;
 	garage = rhs.garage;
+	init(rhs.fname, rhs.lname);
 	return *this;
 }
 

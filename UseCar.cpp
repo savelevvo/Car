@@ -5,11 +5,11 @@ using std::string;
 
 int main()
 {
-	Engine m50b20("m50b20", 0, Ratio(10.5), 6, 82, 66, 2.0F, 150);
-	Car E34_520("E34", "5", "Germany", "Manual", Acceleration(11,3), m50b20);	
+	Engine m50b20(Ratio(10.5), "m50b20", 0, 2.0F, 6, 82, 66, 150);
+	Car E34_520(m50b20, Acceleration(11, 3), "E34", "5", "Germany", "Manual");
 	
-	Engine m50b25("m50b25", 1, Ratio(10.5), 6, 84, 66, 2.5F, 192);
-	Car E34_525("E34", "5", "Germany", "Manual", Acceleration(9, 4), m50b25);
+	Engine m50b25(Ratio(10.5), "m50b25", 1, 2.5F, 6, 84, 66, 192);
+	Car E34_525(m50b25, Acceleration(9, 4), "E34", "5", "Germany", "Manual");
 	
 	Garage g;
 	g.AddCar(E34_520);

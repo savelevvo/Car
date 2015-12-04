@@ -8,6 +8,7 @@ class Acceleration
 private:
 	TIME sec;
 	TIME msec;
+	void init(TIME, TIME);
 public:
 	Acceleration();
 	Acceleration(const Acceleration &);

@@ -1,19 +1,25 @@
 #include "Acceleration.h"
 
+void Acceleration::init(TIME _sec = 0, TIME _msec = 0)
+{
+	sec = _sec; msec = _msec;
+}
+
 Acceleration::Acceleration()
-	:sec(0),
-	 msec(0)
-{}
+{
+	init();
+}
 
 Acceleration::Acceleration(const Acceleration &rhs)
-	:sec(rhs.sec),
-	 msec(rhs.msec)
-{}
+{
+	init(rhs.sec, rhs.msec);
+}
 
 Acceleration::Acceleration(TIME _msec)
-	:msec(_msec)
 {
-	if (_msec > 60)
+	if (_msec < 60)
+		init(0, _msec);
+	else
 	{
 		sec = _msec / 60;
 		msec = _msec - sec * 60;
@@ -21,10 +27,10 @@ Acceleration::Acceleration(TIME _msec)
 }
 
 Acceleration::Acceleration(TIME _sec, TIME _msec)
-	:msec(_msec),
-	sec(_sec)
 {	
-	if (_msec > 60)
+	if (_msec < 60)
+		init(_sec, _msec);
+	else
 	{
 		sec = _msec / 60;
 		msec = _msec - sec * 60;
@@ -35,8 +41,7 @@ Acceleration::Acceleration(TIME _sec, TIME _msec)
 Acceleration & Acceleration::operator=(const Acceleration &rhs)
 {
 	if (this == &rhs) return *this;
-	sec = rhs.sec;
-	msec = rhs.msec;
+	init(rhs.sec, rhs.msec);
 	return *this;
 }
 

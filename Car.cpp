@@ -1,49 +1,49 @@
 #include"Car.h"
 
+void Car::init(SCAR_PARAM _model = "Unnamed", SCAR_PARAM _series = "Unknown Series",
+				SCAR_PARAM _country = "N/A", SCAR_PARAM _transmission = "Manual")
+{
+	model = _model;
+	series = _series;
+	country = _country;
+	transmission = _transmission;
+}
+
 Car::Car()
-	:model("Unnamed"),
-	 series("Unknown Series"),
-	 country("N/A"),
-	 transmission("Manual"),
-	 acceleration(Acceleration()),
-	 engine(Engine())
-{}
+	:engine(Engine()),
+	 acceleration(Acceleration())
+{
+	init();
+}
 
 Car::Car(const Car &rhs)
-	:model(rhs.model),
-	 series(rhs.series),
-	 country(rhs.country),
-	 transmission(rhs.transmission),
-	 acceleration(rhs.acceleration),
-	 engine(rhs.engine)
-{}
+	:engine(rhs.engine),
+	 acceleration(rhs.acceleration)
+{
+	init(rhs.model, rhs.series, rhs.country, rhs.transmission);
+}
 
 Car::Car
 (
+	Engine		 _engine,
+	Acceleration _acceleration,
 	SCAR_PARAM   _model,
 	SCAR_PARAM   _series,
 	SCAR_PARAM   _country,
-	SCAR_PARAM   _transmission,
-	Acceleration _acceleration,
-	Engine		 _engine
+	SCAR_PARAM   _transmission
 )
-	:model(_model),
-	 series(_series),
-	 country(_country),
-	 transmission(_transmission),
-	 acceleration(_acceleration),
-	 engine(_engine)
-{}
+	:engine(_engine),
+	acceleration(_acceleration)
+{
+	init(_model, _series, _country, _transmission);
+}
 
 Car & Car::operator=(const Car &rhs)
 {
 	if (this == &rhs) return *this;
-	model = rhs.model;
-	series = rhs.series;
-	country = rhs.country;
-	transmission = rhs.transmission;
-	acceleration = rhs.acceleration;
 	engine = rhs.engine;
+	acceleration = rhs.acceleration;
+	init(rhs.model, rhs.series, rhs.country, rhs.transmission);
 	return *this;
 }
 

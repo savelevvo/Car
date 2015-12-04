@@ -1,31 +1,34 @@
 #include"Ratio.h"
 
+void Ratio::init(float _f = 1, unsigned short _s = 1)
+{
+	first = _f; second = _s; 
+}
+
 Ratio::Ratio()
-	:first(1),
-	 second(1)
-{}
+{
+	init();
+}
 
 Ratio::Ratio(const Ratio &rhs)
-	:first(rhs.first),
-	 second(rhs.second)
-{}
+{
+	init(rhs.first, rhs.second);
+}
 
 Ratio::Ratio(float _f)
-	:first(_f),
-	 second(1)
-{}
+{
+	init(_f);
+}
 
 Ratio::Ratio(float _f, unsigned short _s)
-
-	:first(_f),
-	 second(_s)
-{}
+{
+	init(_f, _s);
+}
 
 Ratio & Ratio::operator=(const Ratio &rhs)
 {
 	if (this == &rhs) return *this;
-	first = rhs.first;
-	second = rhs.second;
+	init(rhs.first, rhs.second);
 	return *this;
 }
 

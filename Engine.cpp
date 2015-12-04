@@ -1,59 +1,55 @@
 #include"Engine.h"
 
+void Engine::init(std::string _name = "N/A", bool _CVVT = false, 
+					FENG_PARAM _displacement = 1, IENG_PARAM _cylinderCount = 1, 
+					IENG_PARAM _cylinderDiameter = 1, IENG_PARAM _stroke = 1,
+					IENG_PARAM _power = 1)
+{
+	name = _name;
+	CVVT = _CVVT;
+	displacement = _displacement;
+	cylinderCount = _cylinderCount;
+	cylinderDiameter = _cylinderDiameter;
+	stroke = _stroke;
+	power = _power;
+}
+
 Engine::Engine()
-	:name("N/A"),
-	 CVVT(false),
-	 cylinderCount(1),
-	 cylinderDiameter(1),
-	 stroke(1),
-	 displacement(1),
-	 power(1)
-{}
+	:comprRatio(Ratio())
+{
+	init();
+}
 
 Engine::Engine(const Engine &rhs)
-
-	:name(rhs.name),
-	 CVVT(rhs.CVVT),
-	 comprRatio(rhs.comprRatio),
-	 cylinderCount(rhs.cylinderCount),
-	 cylinderDiameter(rhs.cylinderDiameter),
-	 stroke(rhs.stroke),
-	 displacement(rhs.displacement),
-	 power(rhs.power)
-{}
+	:comprRatio(rhs.comprRatio)
+{
+	init(rhs.name, rhs.CVVT, rhs.displacement, 
+		rhs.cylinderCount, rhs.cylinderDiameter, rhs.stroke, rhs.power);
+}
 
 Engine::Engine
 (
+	Ratio		 _comprRatio,
 	std::string  _name,
 	bool		 _CVVT,
-	Ratio		 _comprRatio,
+	FENG_PARAM	 _displacement,
 	IENG_PARAM	 _cylinderCount,
 	IENG_PARAM	 _cylinderDiameter,
 	IENG_PARAM	 _stroke,
-	FENG_PARAM	 _displacement,
 	IENG_PARAM	 _power
 )
-	:name(_name),
-	 CVVT(_CVVT),
-	 comprRatio(_comprRatio),
-	 cylinderCount(_cylinderCount),
-	 cylinderDiameter(_cylinderDiameter),
-	 stroke(_stroke),
-	 displacement(_displacement),
-	 power(_power)
-{}
+	:comprRatio(_comprRatio)
+{
+	init(_name, _CVVT, _displacement, 
+		_cylinderCount, _cylinderDiameter, _stroke, _power);
+}
 
 Engine & Engine::operator=(const Engine &rhs)
 {
 	if (this == &rhs) return *this;
-	name = rhs.name;
-	CVVT = rhs.CVVT;
 	comprRatio = rhs.comprRatio;
-	cylinderCount = rhs.cylinderCount;
-	cylinderDiameter = rhs.cylinderDiameter;
-	stroke = rhs.stroke;
-	displacement = rhs.displacement;
-	power = rhs.power;
+	init(rhs.name, rhs.CVVT, rhs.displacement,
+		rhs.cylinderCount, rhs.cylinderDiameter, rhs.stroke, rhs.power);
 	return *this;
 }
 

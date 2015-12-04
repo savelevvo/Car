@@ -7,6 +7,7 @@ class Ratio
 private:
 	float first;
 	unsigned short second;
+	void init(float, unsigned short);
 public:
 	Ratio();
 	Ratio(const Ratio &);
