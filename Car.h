@@ -9,14 +9,6 @@ using std::endl;
 class Car :
 	private Engine
 {
-private:
-	Engine		 engine; 
-	Acceleration acceleration;
-	SCAR_PARAM   model,
-				 series,
-				 country,
-				 transmission;
-	void init(SCAR_PARAM, SCAR_PARAM, SCAR_PARAM, SCAR_PARAM);
 public:
 	Car();
 	Car(const Car &);
@@ -34,4 +26,12 @@ public:
 	friend std::ostream & operator<<(std::ostream &, const Car &);
 	friend std::istream & operator>>(std::istream &, Car &);
 	friend bool operator==(const Car &, const Car &);
+private:
+	Engine		 engine;
+	Acceleration acceleration;
+	SCAR_PARAM   model,
+		series,
+		country,
+		transmission;
+	void init(SCAR_PARAM, SCAR_PARAM, SCAR_PARAM, SCAR_PARAM);
 };

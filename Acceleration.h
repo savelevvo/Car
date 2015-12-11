@@ -5,10 +5,6 @@ typedef unsigned int TIME;
 
 class Acceleration
 {
-private:
-	TIME sec;
-	TIME msec;
-	void init(TIME, TIME);
 public:
 	Acceleration();
 	Acceleration(const Acceleration &);
@@ -26,6 +22,8 @@ public:
 	friend bool operator==(const Acceleration &, const Acceleration &);
 	friend std::ostream & operator<<(std::ostream &, const Acceleration &);
 	friend std::istream & operator>>(std::istream &, Acceleration &);
-	
+private:
+	TIME sec;
+	TIME msec;
+	void init(TIME, TIME);
 };
-

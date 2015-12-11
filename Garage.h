@@ -9,13 +9,13 @@ using std::endl;
 
 class Garage
 {
-private:
-	vector<Car> CarList;
-	size_t CarsCount = CarList.size();
-	Car *CurrentCar;
 public:
 	void AddCar(const Car &);
 	void DisplayCars()const;
 	void SetCurrentCar(Car &);
 	void DisplayCurrentCar()const { cout << endl << "Current car:" << *CurrentCar << endl; };
+private:
+	vector<Car> CarList;
+	size_t CarsCount = CarList.size();
+	Car *CurrentCar;
 };

@@ -5,6 +5,15 @@ void Ratio::init(float _f = 1, unsigned short _s = 1)
 	first = _f; second = _s; 
 }
 
+void Ratio::swap(Ratio &rhs)
+{
+	Ratio tmp(rhs);
+	first = rhs.first;
+	second = rhs.second;
+	rhs.first = tmp.first;
+	rhs.second = tmp.second;
+}
+
 Ratio::Ratio()
 {
 	init();
@@ -25,10 +34,9 @@ Ratio::Ratio(float _f, unsigned short _s)
 	init(_f, _s);
 }
 
-Ratio & Ratio::operator=(const Ratio &rhs)
+Ratio & Ratio::operator=(Ratio rhs)
 {
-	if (this == &rhs) return *this;
-	init(rhs.first, rhs.second);
+	swap(rhs);
 	return *this;
 }
 

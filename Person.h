@@ -8,10 +8,6 @@ using std::cout;
 
 class Person
 {
-private:
-	Garage *garage;
-	string fname, lname;
-	void init(string, string);
 public:
 	Person();
 	Person(const Person &);
@@ -21,5 +17,8 @@ public:
 
 	friend std::ostream & operator<<(std::ostream &, const Person &);
 	friend std::istream & operator>>(std::istream &, Person &);
-
+private:
+	Garage *garage;
+	string fname, lname;
+	void init(string, string);
 };
